@@ -1,0 +1,16 @@
+[Unit]
+Description=Hello Jenny service
+After=network.target
+StartLimitBurst=5
+StartLimitIntervalSec=0
+StartLimitAction=reboot
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pi
+ExecStart=/bin/bash /home/pi/box-software/scripts/start.sh
+
+[Install]
+WantedBy=multi-user.target
